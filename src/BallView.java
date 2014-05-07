@@ -11,6 +11,7 @@ public class BallView {
    }
    public boolean contains (double x, double y){
       // to be coded
+      return false;
    }
    public void setSelected (){
       color = Color.RED;
