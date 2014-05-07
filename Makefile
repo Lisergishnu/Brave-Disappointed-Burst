@@ -5,7 +5,6 @@ all:
 	$(JC) $(SRC)
 	mkdir -p bin/
 	mv src/*.class bin/
-	mkdir -p res/
 clean:
 	rm -f src/*.class
 
