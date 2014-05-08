@@ -31,10 +31,28 @@ public class MyWorldView extends JPanel {
 // END declarations to use metric coordinate system (not pixels)
 
    private MyWorld world;
+
+   //TODO: Claramente hay que hacer una abstracción de BallView...
+   private ArrayList<BallView> mEViewList;
    
    public MyWorldView(MyWorld w){
       world = w;
+      mEViewList = new ArrayList<BallView>();
+      ArrayList<PhysicsElement> mElementList = w.getPhysicsElements();
+      //Vemos que elementos existen actualmente en el mundo y los dibujamos
+      for (PhysicsElement e : mElementList) {
+        if (e instanceof Ball) {
+          mEViewList.add(new BallView((Ball)e));
+        }  
+      }
    }
+
+   public void elementAdded(PhysicsElement e) {
+     if (e instanceof Ball) {
+          mEViewList.add(new BallView((Ball)e));
+      }  
+   }
+
    public void repaintView(){
      repaint();
    }
@@ -46,6 +64,9 @@ public class MyWorldView extends JPanel {
       g2.setStroke(new BasicStroke(0.02f));
       g2.draw(X_AXIS);
       g2.draw(Y_AXIS);
-      /* .......*/      
+      /* .......*/    
+      for (BallView b : mEViewList) {
+        b.updateView(g2);
+      }
    }
 }

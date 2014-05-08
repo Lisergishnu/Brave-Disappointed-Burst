@@ -6,7 +6,7 @@ all:
 	mkdir -p bin/
 	mv src/*.class bin/
 clean:
-	rm -f src/*.class
+	rm -rf bin/
 
 run:
 	java -classpath bin/ $(NAME)

@@ -28,6 +28,9 @@ public class MyWorld implements ActionListener {
 
    public void addElement(PhysicsElement e) {
       elements.add(e);
+      //Debemos avisar a la vista que agregamos un elemento para que
+      //genere la vista de este y la actualize
+      view.elementAdded(e);
       view.repaintView();
    }
    public void setView(MyWorldView view) {
