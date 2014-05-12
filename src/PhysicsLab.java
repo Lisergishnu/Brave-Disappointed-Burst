@@ -17,17 +17,29 @@ class PhysicsLab_GUI extends JFrame {
       MyWorld world = new MyWorld();
       MyWorldView  worldView = new MyWorldView(world);
       world.setView(worldView);
-      add(worldView);
-      createConfiguration(world);
+      add(worldView);  
+      LabMenuListener menuListener = new LabMenuListener(world);
+      /*  .....   */;
    }
-   private void createConfiguration(MyWorld world) {  // Please note how similar it is to "Etapa 4" of T1
-      double mass = 1.0;      // 1 [kg] 
-      double radius = 0.1;    // 10 [cm] 
-      double position = 0.0;  // 1 [m] 
-      double speed = 0.5;     // 0.5 [m/s]
-      Ball b0 = new Ball(mass, radius, position, speed);
-      Ball b1 = new Ball(mass, radius, 2.0, 0);
-      world.addElement(b0);
-      world.addElement(b1);
-   }
+
+   public JMenuBar createLabMenuBar(LabMenuListener menu_l) {
+      JMenuBar mb = new JMenuBar();
+      
+      JMenu menu = new JMenu ("Configuration");
+      mb.add(menu);
+      JMenu subMenu = new JMenu("Insert");  
+      menu.add(subMenu);
+      
+      JMenuItem menuItem = new JMenuItem("Ball");
+      menuItem.addActionListener(menu_l);
+      subMenu.add(menuItem);
+ /*....*/      
+      menu = new JMenu("MyWorld");
+      mb.add(menu);
+      menuItem = new JMenuItem("Start");
+      menuItem.addActionListener(menu_l);
+      menu.add(menuItem);
+/* ...*/
+      return mb;          
+   }   
 }
