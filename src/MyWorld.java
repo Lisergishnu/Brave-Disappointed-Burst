@@ -64,7 +64,8 @@ public class MyWorld implements ActionListener {
                s.updateState();            // update its state
             }
       }
- 
+      //Despues de haber simulado todo es necesario redibujar la vista
+      repaintView();
    }
    
    public void repaintView(){
