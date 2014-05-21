@@ -48,6 +48,10 @@ public class MyWorld implements ActionListener {
       passingTime.start();      
    }
    public void stop(){
+      if(passingTime.isRunning())
+         passingTime.stop();
+      else
+         return;
    }
    
    public void actionPerformed (ActionEvent event) {  // like simulate method of Assignment 1, 
