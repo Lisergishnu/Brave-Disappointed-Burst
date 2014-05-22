@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.text.*;
 
 public abstract class PhysicsElement {
    private final int myId; /* to identify each element within its category */
@@ -9,6 +10,9 @@ public abstract class PhysicsElement {
    protected int getId() {
       return myId;
    }
+
+   protected DecimalFormat df = new DecimalFormat("#.##");
+
    public abstract String getDescription();
    public abstract String getState();
    public abstract void updateView(Graphics2D g);
