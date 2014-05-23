@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Spring extends PhysicsElement {
+public class Spring extends PhysicsElement implements Simulateable {
    private static int id=0;  // Spring identification
    private final double restLength;
    private final double stiffness;
@@ -96,4 +96,16 @@ public class Spring extends PhysicsElement {
    public void dragTo(double x){
       
    }
+
+    //**************************************
+    // METODOS OBLIGADOS POR INTERFAZ
+    //**************************************
+
+   public void computeNextState(double delta_t, MyWorld world){
+        //TODO  
+    }
+    public void updateState(){
+        //TODO
+    }
+
 }

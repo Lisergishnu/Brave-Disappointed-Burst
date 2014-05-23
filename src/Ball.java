@@ -28,22 +28,10 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    public double getRadius() {
       return radius;
    }
-   public double getPosition() {
-      return pos_t;
-   }
    public double getSpeed() {
       return speed_t;
    }
-   public void computeNextState(double delta_t, MyWorld world) {
-     Ball b;  // Assumption: on collision we only change speed.   
-     if ((b=world.findCollidingBall(this))!= null){ /* elastic collision */
-        speed_tPlusDelta=(speed_t*(mass-b.getMass())+2*b.getMass()*b.getSpeed())/(mass+b.getMass());
-        pos_tPlusDelta = pos_t;
-     } else {
-        speed_tPlusDelta = speed_t;
-        pos_tPlusDelta = pos_t + speed_t*delta_t;
-     }
-   }
+   
    public boolean collide(Ball b) {
      if (this == b) return false;
      boolean closeEnougth = Math.abs(getPosition()-b.getPosition()) < (getRadius()+b.getRadius());
@@ -52,10 +40,7 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
         approaching = getSpeed() < b.getSpeed();
      return closeEnougth && approaching;
    }
-   public void updateState(){
-     pos_t = pos_tPlusDelta;
-     speed_t = speed_tPlusDelta;
-   }
+   
    public void updateView (Graphics2D g) {   // NEW
      view.updateView(g);  // update this Ball's view in Model-View-Controller design pattern     
    }
@@ -78,13 +63,36 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    public String getState() {
      return getPosition()+"";
    }
+
+   //**************************************
+   // METODOS OBLIGADOS POR INTERFAZ
+   //**************************************
    
    public void attachSpring(Spring s){
-	   //implementar
+     //implementar
    }
    
    public void detachSpring(Spring s){
-	   //implementar
+     //implementar
    }
-   
+
+   public double getPosition() {
+      return pos_t;
+   }
+
+   public void updateState(){
+     pos_t = pos_tPlusDelta;
+     speed_t = speed_tPlusDelta;
+   }
+
+   public void computeNextState(double delta_t, MyWorld world) {
+     Ball b;  // Assumption: on collision we only change speed.   
+     if ((b=world.findCollidingBall(this))!= null){ /* elastic collision */
+        speed_tPlusDelta=(speed_t*(mass-b.getMass())+2*b.getMass()*b.getSpeed())/(mass+b.getMass());
+        pos_tPlusDelta = pos_t;
+     } else {
+        speed_tPlusDelta = speed_t;
+        pos_tPlusDelta = pos_t + speed_t*delta_t;
+     }
+   }
 }
