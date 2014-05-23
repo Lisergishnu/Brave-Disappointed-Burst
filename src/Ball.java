@@ -1,7 +1,7 @@
 import java.util.*;
 import java.awt.*;
 
-public class Ball extends PhysicsElement implements Simulateable {
+public class Ball extends PhysicsElement implements Simulateable,SpringAttachable {
    private static int id=0;  // Ball identification number
    private final double mass;
    private final double radius;
@@ -78,4 +78,13 @@ public class Ball extends PhysicsElement implements Simulateable {
    public String getState() {
      return getPosition()+"";
    }
+   
+   public void attachSpring(Spring s){
+	   //implementar
+   }
+   
+   public void detachSpring(Spring s){
+	   //implementar
+   }
+   
 }

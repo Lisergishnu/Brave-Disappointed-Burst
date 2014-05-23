@@ -77,6 +77,7 @@ public class FixedHook extends PhysicsElement implements SpringAttachable {
     //**************************************
     // METODOS OBLIGADOS POR INTERFACE
     //**************************************
+    /*
     public void addExternalForce(Vector extF) {
         //externalForces.add(extF);
     }
@@ -84,13 +85,14 @@ public class FixedHook extends PhysicsElement implements SpringAttachable {
     public void removeExternalForce(Vector extF) {
         //externalForces.remove(extF);
     }
+    */
 
     public void attachSpring(Spring spring) {
         //attachedSpring = spring;
     }
 
     public void detachSpring(Spring s) {
-
+    	//implementar
     }
     
     public double getPosition() {
