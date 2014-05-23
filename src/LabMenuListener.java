@@ -13,16 +13,19 @@ public class LabMenuListener implements ActionListener {
       
       // Actions associated to main manu options
       if (text.equals("My scenario")) {  // here you define Etapa2's configuration
-         Ball b1,b2;
+         Ball b1;
          FixedHook h1;
+         Spring s1;
          double mass = 1.0;
          double radius = 0.1;
-         b1 = new Ball(mass,radius,1,-1);
-         b2 = new Ball(mass,radius,2,0);
-         h1 = new FixedHook(0,.2);
+         b1 = new Ball(mass,radius,2,0);
+         h1 = new FixedHook(1,.2);
+         s1 = new Spring(.5,1);
          world.addElement(b1);
-         world.addElement(b2);
          world.addElement(h1);
+         world.addElement(s1);
+         s1.attachAend(h1);
+         s1.attachBend(b1);
       }
       if (text.equals("Ball")) {
         // nothing by now       
