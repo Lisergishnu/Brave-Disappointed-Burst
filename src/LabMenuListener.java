@@ -18,7 +18,7 @@ public class LabMenuListener implements ActionListener {
          Spring s1;
          double mass = 1.0;
          double radius = 0.1;
-         b1 = new Ball(mass,radius,2,0);
+         b1 = new Ball(mass,radius,3,0);
          h1 = new FixedHook(1,.2);
          s1 = new Spring(.5,1);
          world.addElement(b1);

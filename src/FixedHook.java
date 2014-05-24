@@ -1,7 +1,7 @@
 import java.util.*;
 import java.awt.*;
 
-public class FixedHook extends PhysicsElement implements SpringAttachable {
+public class FixedHook extends PhysicsElement implements Simulateable,SpringAttachable {
 
 //Codigo extendido de la tarea 1
 
@@ -36,16 +36,6 @@ public class FixedHook extends PhysicsElement implements SpringAttachable {
     // METODOS PUBLICOS
     //*************************
 
-    public void computeNextState(double delta_t, MyWorld world){
-    	
-    }
-    public void updateState(){
-    	
-    }
-
-    public double getWidth() {
-    	return width;
-    }
 
 
     //**************************************
@@ -53,29 +43,29 @@ public class FixedHook extends PhysicsElement implements SpringAttachable {
     //**************************************
     
     public String getDescription(){
-    	return "f" + getId();
+        return "f" + getId();
     }
     public String getState(){
-    	return df.format(position);
+        return df.format(position);
     }
     public void updateView(Graphics2D g) {
-    	view.updateView(g);
+        view.updateView(g);
     }
     public boolean contains(double x, double y) {
-    	return view.contains(x,y);
+        return view.contains(x,y);
     }
     public void setSelected() {
-    	view.setSelected();
+        view.setSelected();
     }
     public void setReleased() {
-    	view.setReleased();
+        view.setReleased();
     }
     public void dragTo(double x){
 
     }
 
     //**************************************
-    // METODOS OBLIGADOS POR INTERFACE
+    // METODOS OBLIGADOS POR INTERFAZ
     //**************************************
     /*
     public void addExternalForce(Vector extF) {
@@ -92,12 +82,22 @@ public class FixedHook extends PhysicsElement implements SpringAttachable {
     }
 
     public void detachSpring(Spring s) {
-    	//implementar
+        //implementar
     }
     
     public double getPosition() {
         return position;
     }
 
+    public void computeNextState(double delta_t, MyWorld world){
+        //TODO	
+    }
+    public void updateState(){
+    	//TODO
+    }
+
+    public double getWidth() {
+    	return width;
+    }
 
 }
