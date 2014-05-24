@@ -32,8 +32,13 @@ public class MyWorldView extends JPanel {
 
    private MyWorld world;
 
+   private MouseListener mListener;
+   
    public MyWorldView(MyWorld w){
       world = w;
+      mListener = new MouseListener(w);
+      addMouseMotionListener(mListener);
+      addMouseListener(mListener);
    }
 
    public void elementAdded(PhysicsElement e) {
@@ -57,4 +62,16 @@ public class MyWorldView extends JPanel {
         e.updateView(g2);
       }
    }
+
+// other methods.
+
+   public void enableMouseListener(){
+      addMouseMotionListener(mListener);
+      addMouseListener(mListener);         
+   }
+   public void desableMouseListener(){
+      removeMouseMotionListener(mListener);
+      removeMouseListener(mListener);
+   }
+
 }
