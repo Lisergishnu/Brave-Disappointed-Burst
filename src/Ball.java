@@ -11,6 +11,8 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    private double speed_tPlusDelta;   // speed in delta time in future
    private BallView view;  // Ball view of Model-View-Controller design pattern
    
+   private double extF;
+   
    private Ball(){   // nobody can create a block without state
      this(1.0,0.1,0,0);
    }
@@ -21,6 +23,7 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
       pos_t = position;
       speed_t = speed;
       view = new BallView(this);
+      extF = 0;
    }
    public double getMass() {
       return mass;
@@ -31,7 +34,9 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    public double getSpeed() {
       return speed_t;
    }
-   
+   public void setForce(double ext){
+	   extF = ext;
+   }
    public boolean collide(Ball b) {
      if (this == b) return false;
      boolean closeEnougth = Math.abs(getPosition()-b.getPosition()) < (getRadius()+b.getRadius());
@@ -91,7 +96,7 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
         speed_tPlusDelta=(speed_t*(mass-b.getMass())+2*b.getMass()*b.getSpeed())/(mass+b.getMass());
         pos_tPlusDelta = pos_t;
      } else {
-        speed_tPlusDelta = speed_t;
+        speed_tPlusDelta = speed_t + extF*delta_t/mass;
         pos_tPlusDelta = pos_t + speed_t*delta_t;
      }
    }
