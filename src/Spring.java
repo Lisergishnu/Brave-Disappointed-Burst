@@ -22,8 +22,8 @@ public class Spring extends PhysicsElement implements Simulateable {
       view = new SpringView(this);
    }
    public void attachAend (SpringAttachable sa) {  // note: we attach a spring to a ball, 
-      if(a_end!=null)                              // not the other way around.
-        a_end.detachSpring(this);
+      if(a_end!=null)
+          a_end.detachSpring(this);
       a_end = sa;                     
       sa.attachSpring(this);
    }
@@ -45,7 +45,12 @@ public class Spring extends PhysicsElement implements Simulateable {
       bLoosePosition = b_end.getPosition();
       b_end=null;
    }      
-
+   public SpringAttachable bEnd(){
+	      return b_end;
+	   }      
+   public SpringAttachable aEnd(){
+	      return a_end;
+	   }      
    public double getAendPosition() {
       if (a_end != null)
          return a_end.getPosition();
@@ -76,6 +81,11 @@ public class Spring extends PhysicsElement implements Simulateable {
    }
    public void updateView (Graphics2D g){
      view.updateView(g);      
+   }
+   public void setPosition(double x){
+	   double last_length = Math.abs(aLoosePosition - bLoosePosition);
+	   aLoosePosition = x - last_length/2;
+	   bLoosePosition = x + last_length/2;
    }
    public void setSelected(){
       view.setSelected();
@@ -112,4 +122,5 @@ public class Spring extends PhysicsElement implements Simulateable {
     public void updateState(){
     	
     }
+    
 }

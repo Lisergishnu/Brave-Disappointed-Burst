@@ -7,7 +7,7 @@ import java.awt.geom.Point2D;
 public class MouseListener extends MouseAdapter {
    private MyWorld world;
    private PhysicsElement currentElement;
-   private final double TOLERANCE = 0.2;
+   private final double TOLERANCE = 0.05;
    public MouseListener (MyWorld w){
       world = w;
    } 
@@ -39,15 +39,25 @@ public class MouseListener extends MouseAdapter {
    }
    
    public void mouseDragged(MouseEvent e) {
+	      Point2D.Double p = new Point2D.Double(0,0); // Change mouse coordenates from
+	      MyWorldView.SPACE_INVERSE_TRANSFORM.transform(e.getPoint(),p);// pixels to meters.
 	   if (currentElement instanceof Ball) {
 		      System.out.println("Dragging Ball");
+		      ((Ball)currentElement).setPosition(p.getX());
 		   }    
 		   else if (currentElement instanceof FixedHook){
 			  System.out.println("Dragging FixedHook");
+		      ((FixedHook)currentElement).setPosition(p.getX());
 		   }
 		   else if (currentElement instanceof Spring){	   
+			  ((Spring)currentElement).detachAend();  
+			  ((Spring)currentElement).detachBend();
+
+		      ((Spring)currentElement).setPosition(p.getX());
 		      System.out.println("Dragging Spring");
 		   }
+
+	      world.repaintView();
    }
    
    public void mouseReleased(MouseEvent e) {
@@ -56,22 +66,18 @@ public class MouseListener extends MouseAdapter {
          Point2D.Double p= new Point2D.Double(0,0);
          MyWorldView.SPACE_INVERSE_TRANSFORM.transform(e.getPoint(),p);
 
+         Spring spring = (Spring) currentElement;
           // we dragged a spring, so we look for and attachable element near by  
-         SpringAttachable element = world.findSpringAttachable(p.getX(), p.getY());
-         if (element != null) {
-            // we dragged a spring and it is near an attachable element,
-            // so we hook it to a spring end.
-            Spring spring = (Spring) currentElement;
-            double a=spring.getAendPosition();
-            if (a==p.getX())
-               spring.attachAend(element);
-            double b=spring.getBendPosition();
-            if (b==p.getX())
-               spring.attachBend(element);
-          }
-      }    
-      else {
-      }
+         SpringAttachable elementA = world.findSpringAttachable(spring.getAendPosition(), p.getY());
+         SpringAttachable elementB = world.findSpringAttachable(spring.getBendPosition(), p.getY());
+         
+         if (elementA != null) {
+               spring.attachBend(elementA);
+         }
+         if (elementB != null) {
+               spring.attachAend(elementB);
+         }
+      }   
 	  System.out.println("Mouse released.");
       currentElement.setReleased();
       currentElement = null;
