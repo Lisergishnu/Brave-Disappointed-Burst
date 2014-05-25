@@ -1,9 +1,11 @@
 import java.awt.event.*; 
+import java.util.*;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 public class LabMenuListener implements ActionListener {
    private MyWorld  world;
+   Random r = new Random();
    public LabMenuListener (MyWorld  w){
       world = w;
    }
@@ -27,11 +29,12 @@ public class LabMenuListener implements ActionListener {
          s1.attachAend(h1);
          s1.attachBend(b1);
       }
-      if (text.equals("Ball")) {
-        // nothing by now       
-      }
-      if (text.equals("Fixed Hook")) ; // ; same as nothing
-      if (text.equals("Spring")) ;
+      if (text.equals("Ball")) 
+    	  world.addElement(new Ball(0.1 + r.nextDouble() *3,0.05 + r.nextDouble() *0.2,0.1 + r.nextDouble()*3 , 0));     
+      if (text.equals("Fixed Hook"))  // ; same as nothing
+    	  world.addElement(new FixedHook(0.1 + r.nextDouble() *3,0.1 + r.nextDouble() *0.3));  
+      if (text.equals("Spring")) 
+    	  world.addElement(new Spring(0.1 + r.nextDouble() *3,0.1 + r.nextDouble() *0.5));  
 
       // Actions associated to MyWorld submenu
       if (text.equals("Start"))
