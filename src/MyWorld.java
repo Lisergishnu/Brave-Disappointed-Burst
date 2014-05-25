@@ -42,11 +42,14 @@ public class MyWorld implements ActionListener {
    }
    public void start() {
       if(passingTime.isRunning()) return;
-      passingTime.start();      
+      passingTime.start();
+      view.disableMouseListener();
    }
    public void stop(){
-      if(passingTime.isRunning())
-         passingTime.stop();
+      if(passingTime.isRunning()){
+    	  passingTime.stop();
+    	  view.enableMouseListener();
+      }         
       else
          return;
    }
