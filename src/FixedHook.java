@@ -12,6 +12,7 @@ public class FixedHook extends PhysicsElement implements Simulateable,SpringAtta
     private double position;
     private double width;
     private FixedHookView view;
+    private Spring attachedSpring;
 
     //**************
     // CONSTRUCTORES
@@ -77,12 +78,16 @@ public class FixedHook extends PhysicsElement implements Simulateable,SpringAtta
     }
     */
 
+    public void setPosition(double x) {
+ 	   position = x;
+    }
+    
     public void attachSpring(Spring spring) {
-        //attachedSpring = spring;
+    	attachedSpring = spring;
     }
 
     public void detachSpring(Spring s) {
-        //implementar
+    	attachedSpring = null;
     }
     
     public double getPosition() {

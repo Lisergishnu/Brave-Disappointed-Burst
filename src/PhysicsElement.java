@@ -20,4 +20,5 @@ public abstract class PhysicsElement {
    public abstract void setSelected();
    public abstract void setReleased();
    public abstract void dragTo(double x);
+   public abstract void setPosition(double x);
 }

@@ -13,8 +13,7 @@ public class BallView {
       shape = new Ellipse2D.Double(b.getPosition(), 0, width, height);
    }
    public boolean contains (double x, double y){
-      // to be coded
-      return false;
+      return shape.contains(x, y);
    }
    public void setSelected (){
       color = Color.RED;

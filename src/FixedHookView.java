@@ -22,18 +22,22 @@ public class FixedHookView {
 	}
 
 	public void updateView(Graphics2D g){
+		xView = hook.getPosition() - width / 2;
+		yView = - height / 2;
+		shape.setFrame(xView,yView,width,height);
+		
 		g.setColor(color);
 		g.fill(shape);
 	}
 
 	public boolean contains(double x, double y) {
-		return false;
+		return shape.contains(x, y);
 	}
 
 	public void setSelected() {
-      /*    */
+		color = Color.BLUE;
 	}
 	public void setReleased() {
-		/* .... */
+		color = Color.GREEN;
 	}
 }

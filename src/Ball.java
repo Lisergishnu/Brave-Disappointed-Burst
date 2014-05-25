@@ -37,6 +37,9 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    public void setForce(double ext){
 	   extF = ext;
    }
+   public void setPosition(double x) {
+	   pos_t = x;
+   }
    public boolean collide(Ball b) {
      if (this == b) return false;
      boolean closeEnougth = Math.abs(getPosition()-b.getPosition()) < (getRadius()+b.getRadius());
@@ -47,7 +50,7 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    }
    
    public void updateView (Graphics2D g) {   // NEW
-     view.updateView(g);  // update this Ball's view in Model-View-Controller design pattern     
+     view.updateView(g);  // update this Ball's view in Model-View-Controller design pattern.   
    }
    public boolean contains(double x, double y) {
       return view.contains(x,y);

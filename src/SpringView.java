@@ -12,7 +12,10 @@ public class SpringView {
    private Path2D.Double shape;
    private Stroke stroke;
 
-   private Spring spring;   
+   private Spring spring;      
+
+   private boolean isSelected = false;
+   private Color color = Color.RED;
 
    static {  // static initialization block. It creates a spring of length = 1.
       polyline.moveTo (xPoints[0], yPoints[0]);
@@ -35,10 +38,16 @@ public class SpringView {
       at.rotate(xa_b, 0);
       at.scale(Math.abs(xa_b),  spring.getRestLength());
       shape = (Path2D.Double) at.createTransformedShape(polyline);
-      if (Math.abs(xa_b) < spring.getRestLength())
-         g.setColor(Color.BLACK);
-      else
-         g.setColor(Color.RED);
+      if(isSelected){
+    	  color = Color.YELLOW;
+      }
+      else{
+	      if (Math.abs(xa_b) < spring.getRestLength())
+	         color = Color.BLACK;
+	      else
+	         color = Color.RED;
+      }
+      g.setColor(color);
       g.setStroke(stroke);
       g.draw(shape);
    }
@@ -46,10 +55,10 @@ public class SpringView {
       return shape.getBounds2D().contains(x,y);
    }
    public void setSelected() {
-      /*    */
+	   isSelected = true;
    }
    public void setReleased() {
-      /* .... */
+	   isSelected = false;
    }
 
 }
