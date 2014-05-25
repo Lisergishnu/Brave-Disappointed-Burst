@@ -30,12 +30,12 @@ public class MouseListener extends MouseAdapter {
    }
    public void mouseReleased(MouseEvent e) {
       if (currentElement == null) return;
-      if (currentElement instanceof Spring) {
+      else if (currentElement instanceof Spring) {
          Point2D.Double p= new Point2D.Double(0,0);
          MyWorldView.SPACE_INVERSE_TRANSFORM.transform(e.getPoint(),p);
 
           // we dragged a spring, so we look for and attachable element near by  
-         SpringAttachable element = world.findAttachableElement(p.getX());
+         SpringAttachable element = world.findSpringAttachable(p.getX(), p.getY());
          if (element != null) {
             // we dragged a spring and it is near an attachable element,
             // so we hook it to a spring end.
@@ -48,6 +48,9 @@ public class MouseListener extends MouseAdapter {
                spring.attachBend(element);
           }
       }    
+      else {
+    	  System.out.println("Nothing released mouse.");
+      }
       currentElement.setReleased();
       currentElement = null;
       world.repaintView();

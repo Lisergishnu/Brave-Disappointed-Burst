@@ -94,4 +94,13 @@ public class MyWorld implements ActionListener {
             if (e.contains(x,y)) return e;
       return null;
    }  
+   
+   public SpringAttachable findSpringAttachable(double x, double y) {
+	      for (PhysicsElement e: elements){
+	    	  if(e instanceof SpringAttachable)
+	            if (e.contains(x, y)) return (SpringAttachable)e;
+	      }
+	      return null;
+	   }  
+   
 } 
