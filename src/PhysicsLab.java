@@ -43,7 +43,6 @@ class PhysicsLab_GUI extends JFrame {
       menuItem.addActionListener(menu_l);
       subMenu.add(menuItem);
       
-
       menu = new JMenu("MyWorld");
       mb.add(menu);
       menuItem = new JMenuItem("Start");

@@ -110,7 +110,6 @@ public class Spring extends PhysicsElement implements Simulateable {
         }
     }
     public void updateState(){
-        
+    	
     }
-
 }

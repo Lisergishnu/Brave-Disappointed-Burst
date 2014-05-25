@@ -77,6 +77,10 @@ public class FixedHook extends PhysicsElement implements Simulateable,SpringAtta
     }
     */
 
+    public void setPosition(double x) {
+ 	   position = x;
+    }
+    
     public void attachSpring(Spring spring) {
         //attachedSpring = spring;
     }

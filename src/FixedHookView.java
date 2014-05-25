@@ -27,13 +27,13 @@ public class FixedHookView {
 	}
 
 	public boolean contains(double x, double y) {
-		return false;
+		return shape.contains(x, y);
 	}
 
 	public void setSelected() {
-      /*    */
+		color = Color.BLUE;
 	}
 	public void setReleased() {
-		/* .... */
+		color = Color.GREEN;
 	}
 }

@@ -37,6 +37,9 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    public void setForce(double ext){
 	   extF = ext;
    }
+   public void setPosition(double x) {
+	   pos_t = x;
+   }
    public boolean collide(Ball b) {
      if (this == b) return false;
      boolean closeEnougth = Math.abs(getPosition()-b.getPosition()) < (getRadius()+b.getRadius());

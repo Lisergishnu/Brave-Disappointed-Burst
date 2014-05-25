@@ -7,6 +7,7 @@ import java.awt.geom.Point2D;
 public class MouseListener extends MouseAdapter {
    private MyWorld world;
    private PhysicsElement currentElement;
+   private final double TOLERANCE = 0.2;
    public MouseListener (MyWorld w){
       world = w;
    } 
@@ -22,12 +23,33 @@ public class MouseListener extends MouseAdapter {
       if (newElement != null) { 
          currentElement = newElement;
          currentElement.setSelected();
+         
+		   if (currentElement instanceof Ball) {
+		      System.out.println("BallSelected");
+		   }    
+		   else if (currentElement instanceof FixedHook){
+			  System.out.println("FixedHook Selected");
+		   }
+		   else if (currentElement instanceof Spring){	   
+		      System.out.println("Spring Selected");
+		   }
       }
+      
       world.repaintView();
    }
+   
    public void mouseDragged(MouseEvent e) {
-      //  to be coded
+	   if (currentElement instanceof Ball) {
+		      System.out.println("Dragging Ball");
+		   }    
+		   else if (currentElement instanceof FixedHook){
+			  System.out.println("Dragging FixedHook");
+		   }
+		   else if (currentElement instanceof Spring){	   
+		      System.out.println("Dragging Spring");
+		   }
    }
+   
    public void mouseReleased(MouseEvent e) {
       if (currentElement == null) return;
       else if (currentElement instanceof Spring) {
@@ -49,8 +71,8 @@ public class MouseListener extends MouseAdapter {
           }
       }    
       else {
-    	  System.out.println("Nothing released mouse.");
       }
+	  System.out.println("Mouse released.");
       currentElement.setReleased();
       currentElement = null;
       world.repaintView();
