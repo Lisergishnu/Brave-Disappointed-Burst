@@ -36,11 +36,11 @@ public class LabMenuListener implements ActionListener {
       // Actions associated to MyWorld submenu
       if (text.equals("Start")){
     	  world.start();
-    	  //disableMouseListener();
+    	  //worldView.disableMouseListener();
       }
       if (text.equals("Stop")){
     	  world.stop();
-    	  //enableMouseListener();
+    	  //worldView.enableMouseListener();
       }
       if (text.equals("Delta time")) {
          String data = JOptionPane.showInputDialog("Enter delta t [s]", "0.0001");
