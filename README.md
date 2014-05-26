@@ -1,4 +1,4 @@
-Brave-Disappointed-Burst
+Brave Disappointed Burst
 ========================
 
 Introducción
@@ -7,11 +7,21 @@ Segunda tarea correspondiente al ramo "Programación Orientada a Objetos" ELO329.
 Este programa realizado en Java simula un laboratorio de física que comprende tres objetos: puntos fijos (FixedHook), bolas (Ball) y resortes (Spring), y simula la interacción entre ellos.
 En el archivo documentacion.pdf se puede encontrar una descripcion más detallada del trabajo realizado como también de simulaciones/pruebas realizadas durante cada etapa de esta tarea.
 
-Ejecución
+Compilación y Ejecución
 ------------
-El programa posee interfaz gráfica por lo que para correrlo hay que utilizar únicamente el comando:
+El programa posee interfaz gráfica por lo que para correrlo la primera vez hay que utilizar únicamente el comando:
 
 	$ make && make run
+
+Una vez compilado basta con 
+
+	$ make run
+
+para ejecutar la aplicación. Por otro lado para generar los documentos se debe correr el comando:
+
+	$ make doc
+
+el cual dejará los documentos recién generados en la carpeta *docs/* y se pueden navegar desde el archivo *index.html*.
 
 Comentarios
 ------------	
@@ -26,21 +36,21 @@ Comentarios
 
 Archivos y breves descripciones
 ------------
-- PhysicsLab: Acá se ejecuta el main y se crea la instancia de mundo, como tambien los listeners y la interfaz gráfica del "laboratorio".
-- LabMenuListener: Implementación de los menus.
-- MouseListener: Implementación del mouse.
-- MyWorld: Contiene los elementos a simular y emula el "mundo".
-- MyWorldView: Dibuja el "mundo".
-- PhysicsElement: Define las clases de elementos físicos. Ball y FixedHook heredan de este.
-- Simulateable: Interface para clasificar clases simulables.
-- SpringAttachable: Interface para clasificar clases que se pueden conctar a un resorte.
-- Ball: Define el objeto bola.
-- BallView: Define el aspecto de una bola para la interfáz gráfica.
-- FixedHook: Define el objeto punto fijo.
-- FixedHookView: Define el aspecto de un punto fijo para la interfaz gráfica.
-- Spring: Define el objeto resorte.
-- SpringView: Define el aspecto de un resorte para la interfáz gráfica.
+- **PhysicsLab**: Acá se ejecuta el main y se crea la instancia de mundo, como tambien los listeners y la interfaz gráfica del "laboratorio".
+- **LabMenuListener**: Implementación de los menus.
+- **MouseListener**: Implementación del mouse.
+- **MyWorld**: Contiene los elementos a simular y emula el "mundo".
+- **MyWorldView**: Dibuja el "mundo".
+- **PhysicsElement**: Define las clases de elementos físicos. Ball y FixedHook heredan de este.
+- **Simulateable**: Interface para clasificar clases simulables.
+- **SpringAttachable**: Interface para clasificar clases que se pueden conctar a un resorte.
+- **Ball**: Define el objeto bola.
+- **BallView**: Define el aspecto de una bola para la interfáz gráfica.
+- **FixedHook**: Define el objeto punto fijo.
+- **FixedHookView**: Define el aspecto de un punto fijo para la interfaz gráfica.
+- **Spring**: Define el objeto resorte.
+- **SpringView**: Define el aspecto de un resorte para la interfáz gráfica.
 
 Etapas
 ------------
-En la sección realeases del proyecto se pueden encontrar disponibles todas las etapas propuestas para esta tarea.
+En la sección **Releases** del repositorio **GitHub** se pueden encontrar disponibles todas las etapas propuestas para esta tarea en formatos descargables.
