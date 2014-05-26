@@ -10,3 +10,5 @@ clean:
 
 run:
 	java -classpath bin/ $(NAME)
+doc:
+	javadoc -d docs/ src/*.java

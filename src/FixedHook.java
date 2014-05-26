@@ -68,15 +68,6 @@ public class FixedHook extends PhysicsElement implements Simulateable,SpringAtta
     //**************************************
     // METODOS OBLIGADOS POR INTERFAZ
     //**************************************
-    /*
-    public void addExternalForce(Vector extF) {
-        //externalForces.add(extF);
-    }
-    
-    public void removeExternalForce(Vector extF) {
-        //externalForces.remove(extF);
-    }
-    */
 
     public void setPosition(double x) {
  	   position = x;
