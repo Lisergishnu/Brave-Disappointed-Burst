@@ -15,7 +15,7 @@ public class BallView {
    private float height = 64;
    
    /**
-   * Constructor
+   * Constructor.
    * @param b Objeto bola asociado a esta vista (View)
    **/
    public BallView (Ball b){
@@ -23,7 +23,7 @@ public class BallView {
       shape = new Ellipse2D.Double(b.getPosition(), 0, width, height);
    }
    /**
-   * Verifica si un punto en el plano xy se encuentra dentro de la bola
+   * Verifica si un punto en el plano xy se encuentra dentro de la bola.
    * @param x Punto en el eje X
    * @param y Punto en el eje Y
    * @return true si true si el punto (x,y) esta en el circulo de la bola.

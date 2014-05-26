@@ -52,21 +52,21 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    }
    /**
    * Retorna la masa de la bola.
-   * @return masa actual en [kg]
+   * @return Masa actual en [kg]
    */
    public double getMass() {
       return mass;
    }
    /**
    * Retorna el radio de la bola.
-   * @return radio
+   * @return Radio
    */
    public double getRadius() {
       return radius;
    }
    /**
    * Retorna la velocidad actual de la bola.
-   * @return velocidad en [m/s]
+   * @return Velocidad en [m/s]
    */
    public double getSpeed() {
       return speed_t;
@@ -88,7 +88,7 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    /**
    * Calcula si dos bolas estan colisionando.
    * @param b Objeto Ball con el que se quiere comparar
-   * @return true si la bola desde la cual se llama el metodo colisiona a la bola b. Falso en caso contrario o si la bola es colisionada por la bola b.
+   * @return True si la bola desde la cual se llama el metodo colisiona a la bola b. Falso en caso contrario o si la bola es colisionada por la bola b.
    */
    public boolean collide(Ball b) {
      if (this == b) return false;
@@ -111,7 +111,7 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    * Verifica si un punto en el plano xy se encuentra dentro de la bola
    * @param x Punto en el eje X
    * @param y Punto en el eje Y
-   * @return true si true si el punto (x,y) esta en la bola. En particular se verifica que en el componente de vista (View) este sea el caso.
+   * @return True si true si el punto (x,y) esta en la bola. En particular se verifica que en el componente de vista (View) este sea el caso.
    * @see BallView
    */
    public boolean contains(double x, double y) {
@@ -140,14 +140,14 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    }
    /**
    * Obtiene descripcion de la bola con su ID
-   * @return string de la forma "Ball_"+ getId()+":x"
+   * @return String de la forma "Ball_"+ getId()+":x"
    */
    public String getDescription() {
      return "Ball_" + getId()+":x";
    }
    /**
    * Obtiene estado actual de la bola en la simulacion
-   * @return string de la forma getPosition()+""
+   * @return String de la forma getPosition()+""
    **/
    public String getState() {
      return getPosition()+"";
@@ -172,7 +172,7 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    }
    /**
    * Retorna la posicion actual de la bola en la recta
-   * @return posicion en [m]
+   * @return Posicion en [m]
    **/
    public double getPosition() {
       return pos_t;
