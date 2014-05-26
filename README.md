@@ -42,8 +42,8 @@ Archivos y breves descripciones
 - **MyWorld**: Contiene los elementos a simular y emula el "mundo".
 - **MyWorldView**: Dibuja el "mundo".
 - **PhysicsElement**: Define las clases de elementos físicos. Ball y FixedHook heredan de este.
-- **Simulateable**: Interface para clasificar clases simulables.
-- **SpringAttachable**: Interface para clasificar clases que se pueden conctar a un resorte.
+- **Simulateable**: Interfaz para clasificar clases simulables.
+- **SpringAttachable**: Interfaz para clasificar clases que se pueden conctar a un resorte.
 - **Ball**: Define el objeto bola.
 - **BallView**: Define el aspecto de una bola para la interfáz gráfica.
 - **FixedHook**: Define el objeto punto fijo.
