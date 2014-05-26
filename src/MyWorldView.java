@@ -1,9 +1,11 @@
 import javax.swing.JPanel;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.*; 
 import java.awt.*;
 import java.util.*;
+import java.awt.event.*;
 
 public class MyWorldView extends JPanel { 
 // BEGIN declarations to use metric coordinate system (not pixels)
@@ -39,6 +41,18 @@ public class MyWorldView extends JPanel {
       mListener = new MouseListener(w);
       addMouseMotionListener(mListener);
       addMouseListener(mListener);
+      //Vemos si se gatilla un switching de elementos bajo el mouse
+      //Sin ser focusable no capta eventos de teclado
+      setFocusable(true);
+      requestFocusInWindow();
+      addKeyListener(new KeyAdapter() {
+    	@Override  
+        public void keyPressed(KeyEvent e)
+        {
+          if(e.getKeyCode() == KeyEvent.VK_N || e.getKeyCode() == KeyEvent.VK_SPACE)
+              mListener.switchSelection();
+        }
+      });
    }
 
    public void elementAdded(PhysicsElement e) {
@@ -56,7 +70,7 @@ public class MyWorldView extends JPanel {
       g2.setStroke(new BasicStroke(0.02f));
       g2.draw(X_AXIS);
       g2.draw(Y_AXIS);
-      /* .......*/ 
+
       ArrayList<PhysicsElement> l = world.getPhysicsElements();   
       for (PhysicsElement e : l) {
         e.updateView(g2);

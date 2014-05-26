@@ -19,7 +19,7 @@ public class MyWorld implements ActionListener {
    public MyWorld(PrintStream output){
       out = output;
       t = 0;
-      refreshPeriod = 0.06;      // 60 [ms]
+      refreshPeriod = 0.01;      // 60 [F.P.S.]
       delta_t = 0.00001;          // 0.01 [ms]
       elements = new ArrayList<PhysicsElement>();
       view = null;
@@ -89,10 +89,13 @@ public class MyWorld implements ActionListener {
       return elements;
    }
    
-   public PhysicsElement find(double x, double y) {
+   //MBT: Ahora en vez de entregar un solo elemento, entrega una lista
+   //     con todos los que estan en esa posicion
+   public ArrayList<PhysicsElement> find(double x, double y) {
+      ArrayList<PhysicsElement> l = new ArrayList<PhysicsElement>();
       for (PhysicsElement e: elements)
-            if (e.contains(x,y)) return e;
-      return null;
+            if (e.contains(x,y)) l.add(e);
+      return l;
    }  
    
    public SpringAttachable findSpringAttachable(double x, double y) {
