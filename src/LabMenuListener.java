@@ -45,9 +45,9 @@ public class LabMenuListener implements ActionListener {
          world.setDelta_t(Double.parseDouble(data));
       }
       if (text.equals("View Refresh time")) {
-         String data = JOptionPane.showInputDialog("Enter refresh time [s]", "0.1");
+         String data = JOptionPane.showInputDialog("Enter refresh time [s]", "0.01");
          if (data == null) 
-            data = "0.1";
+            data = "0.01";
          world.setRefreshPeriod(Double.parseDouble(data));
       }
    }

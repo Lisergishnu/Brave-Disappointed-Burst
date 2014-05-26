@@ -19,7 +19,7 @@ public class MyWorld implements ActionListener {
    public MyWorld(PrintStream output){
       out = output;
       t = 0;
-      refreshPeriod = 0.06;      // 60 [ms]
+      refreshPeriod = 0.01;      // 60 [F.P.S.]
       delta_t = 0.00001;          // 0.01 [ms]
       elements = new ArrayList<PhysicsElement>();
       view = null;
