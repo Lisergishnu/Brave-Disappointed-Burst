@@ -22,7 +22,7 @@ public class LabMenuListener implements ActionListener {
          FixedHook h1  = new FixedHook(0,.2);
          Spring s1 = new Spring(.5,1);
          //Spring s2 = new Spring(.5,1);
-         Block bloque1 = new Block(1,.2,3,0,world);
+         Block bloque1 = new Block(2,.2,3,0,world);
          world.addElement(b1);
          world.addElement(b2);
          world.addElement(h1);

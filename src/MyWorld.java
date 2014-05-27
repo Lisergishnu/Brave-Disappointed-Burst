@@ -130,8 +130,8 @@ public class MyWorld implements ActionListener {
 
    /**
    * Encuentra un objeto Ball que colisiona con otro.
-   * @param me Objeto Ball de referencia
-   * @return Referencia a elemento Ball que colisiona con me
+   * @param me Objeto "Simulateable"(Ball o Block) de referencia
+   * @return Referencia a elemento "Simulateable"(Ball o Block) que colisiona con me
    **/
    public Simulateable findCollidingElement(Simulateable me) {
       for (PhysicsElement e: elements)

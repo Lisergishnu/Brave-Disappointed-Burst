@@ -107,10 +107,6 @@ public class Spring extends PhysicsElement {
       
    }
 
-    //**************************************
-    // METODOS OBLIGADOS POR INTERFAZ NOT
-    //**************************************
-
    public void computeNextState(double delta_t, MyWorld world){
         if(a_end instanceof Simulateable){
         	((Simulateable)a_end).setForce(getForce(a_end));
