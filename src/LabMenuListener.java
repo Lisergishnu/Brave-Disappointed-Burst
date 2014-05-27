@@ -40,7 +40,9 @@ public class LabMenuListener implements ActionListener {
     	  world.addElement(new FixedHook(0.1 + r.nextDouble() *3,0.1 + r.nextDouble() *0.3));  
       if (text.equals("Spring")) 
     	  world.addElement(new Spring(0.1 + r.nextDouble() *3,0.1 + r.nextDouble() *0.5));  
-
+      if (text.equals("Block")) 
+    	  world.addElement(new Block(0.1 + r.nextDouble() *3,0.05 + r.nextDouble() *0.2,0.1 + r.nextDouble()*3 , 0,0.1 + r.nextDouble() *3,world));  
+      
       // Actions associated to MyWorld submenu
       if (text.equals("Start"))
     	  world.start();

@@ -60,6 +60,10 @@ public class MouseListener extends MouseAdapter {
 			  System.out.println("Dragging FixedHook");
 		      ((FixedHook)currentElement).setPosition(p.getX());
 		   }
+		   else if (currentElement instanceof Block){
+			  System.out.println("Dragging Block");
+		      ((Block)currentElement).setPosition(p.getX());
+		   }
 		   else if (currentElement instanceof Spring){	   
 			  ((Spring)currentElement).detachAend();  
 			  ((Spring)currentElement).detachBend();
