@@ -22,7 +22,7 @@ public class LabMenuListener implements ActionListener {
          FixedHook h1  = new FixedHook(0,.2);
          Spring s1 = new Spring(.5,1);
          //Spring s2 = new Spring(.5,1);
-         Block bloque1 = new Block(10,.2,3,0,1,world);
+         Block bloque1 = new Block(1,.2,3,0,world);
          world.addElement(b1);
          world.addElement(b2);
          world.addElement(h1);
@@ -41,7 +41,7 @@ public class LabMenuListener implements ActionListener {
       if (text.equals("Spring")) 
     	  world.addElement(new Spring(0.1 + r.nextDouble() *3,0.1 + r.nextDouble() *0.5));  
       if (text.equals("Block")) 
-    	  world.addElement(new Block(0.1 + r.nextDouble() *3,0.05 + r.nextDouble() *0.2,0.1 + r.nextDouble()*3 , 0,0.1 + r.nextDouble() *3,world));  
+    	  world.addElement(new Block(0.1 + r.nextDouble() *3,0.05 + r.nextDouble() *0.2,0.1 + r.nextDouble()*3 , 0,world));  
       
       // Actions associated to MyWorld submenu
       if (text.equals("Start"))

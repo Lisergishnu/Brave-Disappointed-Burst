@@ -16,13 +16,13 @@ public class Block extends PhysicsElement implements SpringAttachable, Simulatea
 		private double extF;
 		private double intF;
 		private static MyWorld world;
-		private final double friction;
+		private final double friction = 0.4f;
 	
 	public Block(){
-		this(1,.5,1,0,1,world);
+		this(1,.5,1,0,world);
 	}
 	
-	public Block(double mass, double width, double position,double speed, double friction, MyWorld world){
+	public Block(double mass, double width, double position,double speed, MyWorld world){
 		super(id++);
 		this.mass = mass;
 		this.width = width;
@@ -31,8 +31,7 @@ public class Block extends PhysicsElement implements SpringAttachable, Simulatea
 	    view = new BlockView(this);
 	    extF = 0;
 	    attachedSpring = null;
-	    this.friction = friction;
-	    intF=-Math.signum(speed)*this.mass*world.getGravity()*friction;
+	    intF=this.mass*world.getGravity()*friction;
 	}
 	
 
@@ -118,9 +117,12 @@ public class Block extends PhysicsElement implements SpringAttachable, Simulatea
         if ((b=world.findCollidingElement(this))!= null){ /* elastic collision */
            speed_tPlusDelta=(speed_t*(mass-b.getMass())+2*b.getMass()*b.getSpeed())/(mass+b.getMass());
            pos_tPlusDelta = pos_t;
-        } else {
+        } else if (Math.abs(speed_t) > 0.3) {
            speed_tPlusDelta = speed_t + (extF-Math.signum(speed_t)*intF)*delta_t/mass;
            pos_tPlusDelta = pos_t + speed_t*delta_t;
+        } else {
+        	speed_tPlusDelta = 0;
+        	pos_tPlusDelta = pos_t;
         }
       }
     public void updateState(){
