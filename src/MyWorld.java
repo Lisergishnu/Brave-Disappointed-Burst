@@ -102,16 +102,17 @@ public class MyWorld implements ActionListener {
    public void actionPerformed (ActionEvent event) {  // like simulate method of Assignment 1, 
       double nextStop=t+refreshPeriod;                // the arguments are attributes here.
       for (; t<nextStop; t+=delta_t){
-         for (PhysicsElement e: elements)
+         for (PhysicsElement e: elements){
             if (e instanceof Simulateable) {
                Simulateable s = (Simulateable) e;
                s.computeNextState(delta_t,this); // compute each element next state based on current global state
+               s.updateState();
             }
-         for (PhysicsElement e: elements)  // for each element update its state. 
-            if (e instanceof Simulateable) {
-               Simulateable s = (Simulateable) e;
-               s.updateState();            // update its state
+            if (e instanceof Spring) {
+            	Spring s = (Spring) e;
+                s.computeNextState(delta_t,this);
             }
+         }
       }
       //Despues de haber simulado todo es necesario redibujar la vista
       repaintView();

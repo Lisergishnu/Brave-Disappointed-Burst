@@ -36,8 +36,14 @@ public class FixedHook extends PhysicsElement implements SpringAttachable {
     //*************************
     // METODOS PUBLICOS
     //*************************
+    
+    public double getPosition() {
+        return position;
+    }
 
-
+    public double getWidth() {
+    	return width;
+    }
 
     //**************************************
     // METODOS IMPLEMENTADOS DE SUPERCLASE
@@ -80,13 +86,7 @@ public class FixedHook extends PhysicsElement implements SpringAttachable {
     public void detachSpring(Spring s) {
     	attachedSpring = null;
     }
-    
-    public double getPosition() {
-        return position;
-    }
 
-    public double getWidth() {
-    	return width;
-    }
+
 
 }

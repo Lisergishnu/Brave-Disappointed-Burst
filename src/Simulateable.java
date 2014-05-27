@@ -13,4 +13,5 @@ public interface Simulateable {
    double getSpeed();
    double getPosition();
    double getRadius();
+   void setForce(double force);
 }

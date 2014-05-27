@@ -24,8 +24,10 @@ public class LabMenuListener implements ActionListener {
          Spring s2 = new Spring(.5,1);
          Block bloque1 = new Block(mass,.2,3,0,1,world);
          world.addElement(b1);
+         world.addElement(b2);
          world.addElement(h1);
          world.addElement(s1);
+         world.addElement(s2);
          world.addElement(bloque1);
          s1.attachAend(h1);
          s1.attachBend(b1);
