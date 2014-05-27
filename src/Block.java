@@ -16,6 +16,7 @@ public class Block extends PhysicsElement implements SpringAttachable, Simulatea
 		private double extF;
 		private double intF;
 		private static MyWorld world;
+		private final double friction;
 	
 	public Block(){
 		this(1,.5,1,0,1,world);
@@ -30,7 +31,8 @@ public class Block extends PhysicsElement implements SpringAttachable, Simulatea
 	    view = new BlockView(this);
 	    extF = 0;
 	    attachedSpring = null;
-	    intF=this.mass*world.getGravity()*friction;
+	    this.friction = friction;
+	    intF=-Math.signum(speed)*this.mass*world.getGravity()*friction;
 	}
 	
 
@@ -52,6 +54,9 @@ public class Block extends PhysicsElement implements SpringAttachable, Simulatea
 	public void setPosition(double x) {
 		pos_t = x;
 	}
+	public double getFriction(){
+		return friction;
+	}
 
 	public boolean collide(Block b) {
 		if (this == b) return false;
@@ -62,6 +67,10 @@ public class Block extends PhysicsElement implements SpringAttachable, Simulatea
 		return closeEnougth && approaching;
 	}
 	
+	/*private void set_intF(){
+		intF = -1*Math.signum(speed_t)*mass*world.getGravity()*friction;
+	}*/
+
     //**************************************
     // METODOS IMPLEMENTADOS DE SUPERCLASE
     //**************************************
@@ -110,7 +119,7 @@ public class Block extends PhysicsElement implements SpringAttachable, Simulatea
            speed_tPlusDelta=(speed_t*(mass-b.getMass())+2*b.getMass()*b.getSpeed())/(mass+b.getMass());
            pos_tPlusDelta = pos_t;
         } else {
-           speed_tPlusDelta = speed_t + (extF+intF)*delta_t/mass;
+           speed_tPlusDelta = speed_t + (extF-Math.signum(speed_t)*intF)*delta_t/mass;
            pos_tPlusDelta = pos_t + speed_t*delta_t;
         }
       }

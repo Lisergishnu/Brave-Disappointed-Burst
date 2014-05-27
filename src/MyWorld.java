@@ -41,6 +41,10 @@ public class MyWorld implements ActionListener {
       view = null;
       passingTime = new Timer((int)(refreshPeriod*1000), this);    
    }
+   /**
+    * Devuelve el valor de la gravedad en este mundo
+    * @return gravedad en [m/s^2]
+    */
    public double getGravity(){
 	   return gravity;
    }

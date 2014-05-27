@@ -87,8 +87,8 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    }
    /**
    * Calcula si dos bolas estan colisionando.
-   * @param b Objeto Ball con el que se quiere comparar
-   * @return True si la bola desde la cual se llama el metodo colisiona a la bola b. Falso en caso contrario o si la bola es colisionada por la bola b.
+   * @param b Objeto Simulateable(bola o bloque) con el que se quiere comparar
+   * @return True si la bola desde la cual se llama el metodo colisiona a el Simulateable b. Falso en caso contrario o si la bola es colisionada por el Simulateable b.
    */
    public boolean collide(Simulateable b) {//revisar
      if (this == b) return false;
