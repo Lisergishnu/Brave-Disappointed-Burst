@@ -18,6 +18,7 @@ public class MyWorld implements ActionListener {
    private double t;        // simulation time
    private double delta_t;        // in seconds
    private double refreshPeriod;  // in seconds
+   private double gravity=10; // in m/s^2
    
    /**
    * Constructor.
@@ -40,7 +41,9 @@ public class MyWorld implements ActionListener {
       view = null;
       passingTime = new Timer((int)(refreshPeriod*1000), this);    
    }
-
+   public double getGravity(){
+	   return gravity;
+   }
    /**
    * Añade un elemento al mundo.
    * @param e Elemento a agregar
@@ -125,10 +128,10 @@ public class MyWorld implements ActionListener {
    * @param me Objeto Ball de referencia
    * @return Referencia a elemento Ball que colisiona con me
    **/
-   public Ball findCollidingBall(Ball me) {
+   public Simulateable findCollidingElement(Simulateable me) {
       for (PhysicsElement e: elements)
-         if ( e instanceof Ball) {
-            Ball b = (Ball) e;
+         if ( e instanceof Simulateable) {
+            Simulateable b = (Simulateable) e;
             if ((b!=me) && b.collide(me)) return b;
          }
       return null;

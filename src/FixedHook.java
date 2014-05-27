@@ -1,7 +1,7 @@
 import java.util.*;
 import java.awt.*;
 
-public class FixedHook extends PhysicsElement implements Simulateable,SpringAttachable {
+public class FixedHook extends PhysicsElement implements SpringAttachable {
 
 //Codigo extendido de la tarea 1
 
@@ -83,13 +83,6 @@ public class FixedHook extends PhysicsElement implements Simulateable,SpringAtta
     
     public double getPosition() {
         return position;
-    }
-
-    public void computeNextState(double delta_t, MyWorld world){
-        //TODO	
-    }
-    public void updateState(){
-    	//TODO
     }
 
     public double getWidth() {

@@ -90,7 +90,7 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    * @param b Objeto Ball con el que se quiere comparar
    * @return True si la bola desde la cual se llama el metodo colisiona a la bola b. Falso en caso contrario o si la bola es colisionada por la bola b.
    */
-   public boolean collide(Ball b) {
+   public boolean collide(Simulateable b) {//revisar
      if (this == b) return false;
      boolean closeEnougth = Math.abs(getPosition()-b.getPosition()) < (getRadius()+b.getRadius());
      boolean approaching = getSpeed() > b.getSpeed();
@@ -193,8 +193,8 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    * @see MyWorld
    **/
    public void computeNextState(double delta_t, MyWorld world) {
-     Ball b;  // Assumption: on collision we only change speed.   
-     if ((b=world.findCollidingBall(this))!= null){ /* elastic collision */
+     Simulateable b;  // Assumption: on collision we only change speed.   
+     if ((b=world.findCollidingElement(this))!= null){ /* elastic collision */
         speed_tPlusDelta=(speed_t*(mass-b.getMass())+2*b.getMass()*b.getSpeed())/(mass+b.getMass());
         pos_tPlusDelta = pos_t;
      } else {
