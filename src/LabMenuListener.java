@@ -35,7 +35,9 @@ public class LabMenuListener implements ActionListener {
          //s2.attachBend(bloque1);
       }
       if (text.equals("Ball")) 
-    	  world.addElement(new Ball(0.1 + r.nextDouble() *3,0.05 + r.nextDouble() *0.2,0.1 + r.nextDouble()*3 , 0));     
+    	  world.addElement(new Ball(0.1 + r.nextDouble() *3,0.05 + r.nextDouble() *0.2,0.1 + r.nextDouble()*3 , 0));
+      if (text.equals("Oscilator")) 
+    	  world.addElement(new Oscilador(2, .1, 1, .5));
       if (text.equals("Fixed Hook"))  // ; same as nothing
     	  world.addElement(new FixedHook(0.1 + r.nextDouble() *3,0.1 + r.nextDouble() *0.3));  
       if (text.equals("Spring")) 

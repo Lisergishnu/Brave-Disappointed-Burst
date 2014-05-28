@@ -39,6 +39,9 @@ class PhysicsLab_GUI extends JFrame {
       menuItem = new JMenuItem("Fixed Hook");
       menuItem.addActionListener(menu_l);
       subMenu.add(menuItem);
+      menuItem = new JMenuItem("Oscilator");
+      menuItem.addActionListener(menu_l);
+      subMenu.add(menuItem);
       menuItem = new JMenuItem("Block");
       menuItem.addActionListener(menu_l);
       subMenu.add(menuItem);
