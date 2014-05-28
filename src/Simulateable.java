@@ -8,4 +8,10 @@
 public interface Simulateable {  
    void computeNextState(double delta_t, MyWorld w);
    void updateState();
+   boolean collide(Simulateable me);
+   double getMass();
+   double getSpeed();
+   double getPosition();
+   double getRadius();
+   void setForce(double force);
 }
