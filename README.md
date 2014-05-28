@@ -4,7 +4,7 @@ Brave Disappointed Burst
 Introducción
 ------------
 Segunda tarea correspondiente al ramo "Programación Orientada a Objetos" ELO329.
-Este programa realizado en Java simula un laboratorio de física que comprende tres objetos: puntos fijos (FixedHook), bolas (Ball) y resortes (Spring), y simula la interacción entre ellos.
+Este programa realizado en Java simula un laboratorio de física que comprende cuatro objetos: puntos fijos (FixedHook), bolas (Ball), bloques con roce cinético (Block) y resortes (Spring), y simula la interacción entre ellos.
 En el archivo documentacion.pdf se puede encontrar una descripcion más detallada del trabajo realizado como también de simulaciones/pruebas realizadas durante cada etapa de esta tarea.
 
 Compilación y Ejecución
@@ -48,6 +48,8 @@ Archivos y breves descripciones
 - **BallView**: Define el aspecto de una bola para la interfáz gráfica.
 - **FixedHook**: Define el objeto punto fijo.
 - **FixedHookView**: Define el aspecto de un punto fijo para la interfaz gráfica.
+- **Block**: Define el objeto de bloque con roce cinético.
+- **BlockView**: Define el aspecto de los bloques.
 - **Spring**: Define el objeto resorte.
 - **SpringView**: Define el aspecto de un resorte para la interfáz gráfica.
 
