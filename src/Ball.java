@@ -167,7 +167,6 @@ public class Ball extends PhysicsElement implements Simulateable,SpringAttachabl
    * Denota que se desengancho el Spring actual. Anula referencia del Spring previamente enganchado a la bola, 
    * setea la fuerza externa a cero, y para evitar que la bola escape, tambien se setea la velocidad a cero.
    * @param s Spring que se desengancho de la bola
-   * @param extF fuerza que actúa sobre la bola se vuelve cero.
    **/
    public void detachSpring(Spring s){
      attachedSpring = null;
